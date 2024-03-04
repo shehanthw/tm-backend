@@ -32,8 +32,10 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post("tasks", [TaskController::class, "store"]);
     Route::put("tasks/{id}", [TaskController::class, "update"]);
     Route::put("tasks/update-status/{id}/{status}", [TaskController::class, "updateStatus"]);
+    Route::delete("tasks/{id}", [TaskController::class, "deleteTask"]);
+    Route::post("logout", [AuthController::class, "logout"]);
 });
 
 Route::post("register", [AuthController::class, "register"]);
-Route::post("logout", [AuthController::class, "logout"]);
+
 Route::post("login", [AuthController::class, "login"]);
